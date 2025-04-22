@@ -1,5 +1,3 @@
----
-
 # Analyse des Performances Bancaires (Berka Dataset)
 
 ## 📜 Description du Projet
@@ -11,7 +9,6 @@ Le pipeline de traitement des données extrait les données brutes, calcule les 
 
 Le pipeline est automatisé avec **Apache Airflow** pour garantir des mises à jour régulières des KPI.
 
----
 
 ## 📊 KPI Calculés et Intégrés dans le Dashboard
 
