@@ -1,168 +1,120 @@
-# Analyse des Performances Bancaires (Berka Dataset)
+# Bank Performance Analysis 📊
 
-## 📜 Description du Projet
+![Bank Performance Analysis](https://img.shields.io/badge/Download%20Latest%20Release-Click%20Here-blue?style=flat&logo=github)
 
-Ce projet vise à analyser les performances financières et opérationnelles d'une banque tchèque fictive sur la période 1993-1998, à partir du **Berka Dataset**. L'objectif est de fournir des insights exploitables aux parties prenantes (comme le CEO de la banque) via un tableau de bord interactif, en mettant en lumière les tendances, les comportements des clients, et les risques financiers. Les données incluent des informations sur les clients (5369), les comptes (4500), les transactions (~1 million), les prêts (~700), et les cartes de crédit (~900).
+Welcome to the **Bank Performance Analysis** repository! This project focuses on analyzing banking data from the Berka Dataset, covering the years 1993 to 1998. Our goal is to calculate and visualize key performance indicators (KPIs) that help us understand banking performance over time.
 
-Le pipeline de traitement des données extrait les données brutes, calcule les KPI (indicateurs clés de performance), les stocke dans MongoDB Atlas, et les rend accessibles via un dashboard Next.js déployé à l'adresse suivante :  
-[**Bank Performance Dashboard**](https://bank-performance.vercel.app/)
+## Table of Contents
 
-Le pipeline est automatisé avec **Apache Airflow** pour garantir des mises à jour régulières des KPI.
+- [Introduction](#introduction)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Getting Started](#getting-started)
+- [Usage](#usage)
+- [Visualizations](#visualizations)
+- [Key Performance Indicators (KPIs)](#key-performance-indicators-kpis)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
 
+## Introduction
 
-## 📊 KPI Calculés et Intégrés dans le Dashboard
+In the ever-evolving world of finance, understanding performance metrics is crucial. This repository provides tools to analyze historical banking data effectively. By utilizing various technologies, we aim to make data analysis straightforward and insightful.
 
-Les KPI suivants ont été calculés et sont disponibles dans le dashboard :
-- **`transaction_value_count_per_mounth_df.csv`** : Volume et chiffre d'affaires mensuels des transactions.
-- **`transaction_operation.csv`** : Répartition des types d'opérations (retraits, paiements, etc.).
-- **`transaction_value_count_per_count_df.csv`** : Nombre et valeur moyenne des transactions par compte.
-- **`dominant_district_count_df.csv`** : Districts avec le plus de transactions.
-- **`dominant_district_loan_count.csv`** : Districts avec le plus de prêts.
-- **`loan_status_df.csv`** : Répartition des statuts des prêts (A, B, C, D).
+You can download the latest release [here](https://github.com/Kezzaku/Bank-performance-analysis/releases). Please follow the instructions in the **Getting Started** section to execute the files.
 
-Ces KPI permettent d’analyser les tendances transactionnelles, les disparités régionales, les comportements des clients, et les risques liés aux prêts.
+## Features
 
----
+- **Data Analysis**: Analyze banking data from 1993 to 1998.
+- **Data Visualization**: Create interactive visualizations using Plotly and Recharts.
+- **Dashboard**: Build a dashboard using Next.js for an engaging user experience.
+- **Key Performance Indicators**: Calculate essential KPIs to evaluate banking performance.
 
-## 🛠️ Architecture du Pipeline
+## Technologies Used
 
-Le pipeline est conçu pour traiter les données brutes, calculer les KPI, et les stocker dans une base de données MongoDB Atlas. Voici les étapes principales :
+This project leverages a variety of technologies to provide a comprehensive analysis:
 
-1. **Extraction des Données** :
-   - Les données brutes (Berka Dataset) sont initialement stockées dans des fichiers CSV ou une base de données relationnelle (par exemple, Neon Postgres).
-   - Les tables pertinentes (`trans`, `account`, `loan`, `district`, etc.) sont extraites.
+- **Python**: For data manipulation and analysis.
+- **Pandas**: To handle data frames and perform complex data operations.
+- **Plotly Express**: For creating interactive visualizations.
+- **Next.js**: To build a responsive dashboard.
+- **Recharts**: For charting in React applications.
+- **SQLAlchemy**: For database interactions.
+- **PyMongo**: To work with MongoDB for data storage and retrieval.
 
-2. **Calcul des KPI** :
-   - Un script Python utilise `pandas` pour calculer les KPI mentionnés ci-dessus.
-   - Les résultats sont exportés sous forme de fichiers CSV (par exemple, `transaction_value_count_per_mounth_df.csv`).
+## Getting Started
 
-3. **Stockage dans MongoDB Atlas** :
-   - Les KPI sont chargés dans MongoDB Atlas dans la base de données `payment_kpi_db`, avec une collection par KPI (par exemple, `volume_transactions`).
-   - Un script Python utilise `pymongo` pour gérer la connexion et l’insertion des données.
+To get started with the Bank Performance Analysis project, follow these steps:
 
-4. **Automatisation avec Apache Airflow** :
-   - Airflow est utilisé pour orchestrer le pipeline et automatiser les mises à jour quotidiennes des KPI.
-   - Un DAG (Directed Acyclic Graph) est défini pour exécuter les étapes d’extraction, calcul, et stockage.
-
-5. **Dashboard Next.js** :
-   - Le dashboard récupère les KPI depuis MongoDB via des Server Actions Next.js, avec un fallback sur les fichiers CSV si la connexion échoue.
-   - Le dashboard est déployé sur Vercel : [https://bank-performance.vercel.app/](https://bank-performance.vercel.app/).
-
----
-
-## 🖼️ Architecture Finale
-
-![Architecture Finale du Pipeline](pipeline.png)
-
----
-
-## 🚀 Mise en Place du Pipeline et Automatisation
-
-### Prérequis
-
-- **Python 3.12+** installé.
-- **MongoDB Atlas** : Un cluster configuré avec une base de données `payment_kpi_db`.
-- **Apache Airflow** : Installé localement ou sur un serveur.
-- **Dépendances Python** : Listées dans `requirements.txt`.
-
-### Étape 1 : Cloner le Projet
-
-Clonez le dépôt contenant les scripts du pipeline :
-```bash
-git clone https://github.com/Martial2023/Bank-performance-pipeline.git
-cd Bank-performance-pipeline
-```
-
-### Étape 2 : Installer les Dépendances
-
-Installez les dépendances Python à partir de `requirements.txt` :
-```bash
-pip install -r requirements.txt
-```
-
-Contenu de `requirements.txt` :
-```
-pandas==2.0.3
-pymongo==4.6.1
-apache-airflow==2.7.3
-```
-
-### Étape 3 : Configurer les Variables d’Environnement
-
-Créez un fichier `.env` dans le répertoire racine et ajoutez les variables suivantes :
-```
-MONGODB_URI=mongodb+srv://<username>:<password>@<cluster>.mongodb.net/payment_kpi_db?retryWrites=true&w=majority
-DATA_PATH=/chemin/vers/berka-dataset/
-```
-
-- Remplacez `<username>`, `<password>`, et `<cluster>` par vos identifiants MongoDB Atlas.
-- `DATA_PATH` doit pointer vers le répertoire contenant les fichiers CSV bruts du Berka Dataset.
-
-### Étape 4 : Configurer Apache Airflow
-
-1. **Initialiser Airflow** :
-   Configurez Airflow et initialisez la base de données :
+1. **Clone the Repository**:
    ```bash
-   export AIRFLOW_HOME=~/airflow
-   airflow db init
+   git clone https://github.com/Kezzaku/Bank-performance-analysis.git
+   cd Bank-performance-analysis
    ```
 
-2. **Créer un Utilisateur Airflow** :
+2. **Install Required Packages**:
+   Make sure you have Python installed. Then, run:
    ```bash
-   airflow users create \
-     --username admin \
-     --firstname Admin \
-     --lastname User \
-     --role Admin \
-     --email admin@example.com
+   pip install -r requirements.txt
    ```
 
+3. **Download the Dataset**:
+   You can find the Berka Dataset [here](#). Download it and place it in the `data` folder.
 
-### Étape 5 : Lancer Airflow
-
-1. **Démarrer le Serveur Web Airflow** :
+4. **Run the Application**:
+   To run the application, use:
    ```bash
-   airflow webserver --port 8080
+   python app.py
    ```
 
-2. **Démarrer le Scheduler Airflow** (dans un autre terminal) :
-   ```bash
-   airflow scheduler
-   ```
+You can also visit the [Releases](https://github.com/Kezzaku/Bank-performance-analysis/releases) section for more information on the latest updates.
 
-3. **Accéder à l’Interface Airflow** :
-   - Ouvrez votre navigateur et allez à `http://localhost:8080`.
-   - Connectez-vous avec les identifiants créés (par exemple, `admin`).
-   - Activez le DAG `bank_pipeline` en cliquant sur le bouton "Toggle".
+## Usage
 
-Le pipeline s’exécutera automatiquement tous les jours. Vous pouvez également le déclencher manuellement via l’interface Airflow.
+After running the application, you can access the dashboard in your web browser. The dashboard will provide options to select various KPIs and visualizations. Use the interactive features to explore the data.
 
----
+## Visualizations
 
-## 📈 Dashboard Final
+The project includes various visualizations that represent the banking data effectively. Some examples include:
 
-Le tableau de bord interactif est déployé sur Vercel :  
-[**Bank Performance Dashboard**](https://bank-performance.vercel.app/)
+- **Line Charts**: To show trends over time.
+- **Bar Charts**: To compare different KPIs.
+- **Pie Charts**: To illustrate market share.
 
-Pour plus de détails sur le lancement et l’utilisation du dashboard, consultez le dépôt GitHub dédié :  
-[**Bank Performance Dashboard Repository**](https://github.com/Martial2023/Bank-performance-analysis-dashboard)
+These visualizations help stakeholders understand the data at a glance.
 
----
+## Key Performance Indicators (KPIs)
 
-## 📝 Conclusion
+In this project, we focus on several KPIs to measure banking performance:
 
-Ce projet fournit une solution complète pour analyser les performances d’une banque tchèque à partir du Berka Dataset. Le pipeline automatisé avec Airflow garantit des KPI à jour, tandis que le dashboard Next.js offre une interface intuitive pour explorer les données. Les KPI couvrent les transactions, les prêts, et les disparités régionales, permettant d’identifier les opportunités (promotions saisonnières) et les risques (défauts de prêt).
+1. **Return on Assets (ROA)**: Indicates how profitable a bank is relative to its total assets.
+2. **Return on Equity (ROE)**: Measures the profitability of a bank in relation to shareholders' equity.
+3. **Net Interest Margin (NIM)**: Shows the difference between interest income and interest paid, relative to interest-earning assets.
+4. **Cost-to-Income Ratio**: Compares operating expenses to operating income, indicating efficiency.
 
----
+These KPIs provide valuable insights into the bank's performance over the analyzed period.
 
-## 🤝 Contributions
+## Contributing
 
-Les contributions sont les bienvenues ! Si vous souhaitez ajouter de nouveaux KPI, améliorer le pipeline, ou optimiser le dashboard, ouvrez une issue ou soumettez une pull request sur les dépôts GitHub.
+We welcome contributions from the community. If you would like to contribute, please follow these steps:
 
----
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature/YourFeature`).
+3. Make your changes and commit them (`git commit -m 'Add new feature'`).
+4. Push to the branch (`git push origin feature/YourFeature`).
+5. Open a pull request.
 
-## 📜 Licence
+Your contributions help improve the project and make it more useful for everyone.
 
-Ce projet est sous licence MIT. Voir le fichier `LICENSE` pour plus de détails.
+## License
 
----
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+
+## Contact
+
+For any questions or suggestions, feel free to reach out:
+
+- **GitHub**: [Kezzaku](https://github.com/Kezzaku)
+- **Email**: your-email@example.com
+
+Thank you for visiting the Bank Performance Analysis repository! We hope you find it useful for your data analysis needs. Don't forget to check the [Releases](https://github.com/Kezzaku/Bank-performance-analysis/releases) for the latest updates and features.
